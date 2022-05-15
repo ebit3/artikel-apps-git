@@ -67,6 +67,7 @@ $data =  show_artikel("SELECT * FROM tb_artikel");
                                     <tr>
                                         <th>#</th>
                                         <th>Nama Artikel</th>
+                                        <th>Tanggal</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -77,15 +78,16 @@ $data =  show_artikel("SELECT * FROM tb_artikel");
                                         <tr>
                                             <td><?= $no + 1 ?></td>
                                             <td><?= $rows['judul'] ?></td>
-                                            <td>
-                                                <img src="../images/images/<?= $rows['gambar'] ?>" alt="" srcset="">
-                                            </td>
+                                            <td><?= $rows['tgl_release'] ?></td>
                                             <td>
                                                 <a href="artikel_edit.php?id=<?= $rows['id_artikel'] ?>" class="btn btn-warning btn-sm">
                                                     <i class="fas fa-edit nav-icon"></i>
                                                 </a>
                                                 <a href="artikel_hapus.php?id=<?= $rows['id_artikel'] ?>" class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash nav-icon"></i>
+                                                </a>
+                                                <a href="artikel_hapus.php?id=<?= $rows['id_artikel'] ?>" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-eye nav-icon"></i>
                                                 </a>
                                             </td>
                                         </tr>

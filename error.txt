@@ -1,18 +1,21 @@
-password => $2y$10$WG2Ib7ga.L3MEhdHVvQjJuwaREDSQ0FMCXONyK6OQYxjaJn5YBnHq
+database struktur 
 
-Ebitgunawan123?>
+db user =>  1. id_user
+            2. username
+            3. password
+            4. nama_user
+            5. kelas_user
+            6. Jurusan
+            7. role => guru, murid 
 
+db kategori =>  1. id_kategori
+                2. nama_kategori            
 
-N%)TrKOhcd)x(DrY8bPg
-
-N%)TrKOhcd)x(DrY8bPg
-
-
-name     DB => id18867856_artikel_app
-username DB => id18867856_root
-password DB => KaSM<UO\}v*vk{4*
-
-
-Warning: session_start(): Session cannot be started after headers have already been sent in /storage/ssd3/856/18867856/public_html/controller/fungsi.php on line 3
-
-Warning: Cannot modify header information - headers already sent by (output started at /storage/ssd3/856/18867856/public_html/admin/dashboard.php:1) in /storage/ssd3/856/18867856/public_html/admin/layouts/header.php on line 7
+db artikel =>   1. id_artikel
+                2. judul_artikel
+                3. isi_artikel
+                4. status_artikel
+                5. tanggal_release => hidden
+                6. waktu_release => hidden
+                7. penulis
+                8. kategori_artikel

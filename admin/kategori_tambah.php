@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nama Kategori</label>
-                                    <input type="text" name="kategori" class="form-control" id="exampleInputEmail1" placeholder="Enter kategori">
+                                    <input type="text" name="kategori" class="form-control" id="exampleInputEmail1" placeholder="Enter kategori" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->

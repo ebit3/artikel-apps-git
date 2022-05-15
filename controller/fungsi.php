@@ -37,14 +37,18 @@ function login($data)
 
             $_SESSION['status_admin_login'] = true;
             $_SESSION['profile'] = $row;
-            header('location:../admin/dashboard.php');
+            header('location:../admin/index.php');
         } else {
 
-            echo 'password anda salah' . mysqli_error($conn);
+            header("location:../auth/login.php");
+            $_SESSION['status'] = true;
+            $_SESSION['e_password'] = "Password anda salah";
         }
     } else {
 
-        echo 'username  anda salah' . mysqli_error($conn);
+        header("location:../auth/login.php");
+        $_SESSION['status'] = true;
+        $_SESSION['e_username'] = "Username anda salah";
     }
 
     return $cek_username;
@@ -90,6 +94,9 @@ function add_artikel($data)
     $judul      = htmlspecialchars(stripslashes($data['judul']));
     $isi        = htmlspecialchars(stripslashes($data['isi']));
 
+    $publisher  = $data['publish'];
+    $status     = $data['status'];
+
     $gambar     = upload();
 
     if (!$gambar) {
@@ -97,7 +104,7 @@ function add_artikel($data)
         return false;
     }
 
-    $sql = "INSERT INTO tb_artikel VALUES (NULL, '" . $kategori . "', '" . $judul . "', '" . $isi . "', '" . $gambar . "')";
+    $sql = "INSERT INTO tb_artikel VALUES (NULL, '" . $kategori . "', '" . $judul . "', '" . $isi . "', '" . $publisher . "', '" . date('Y-m-d') . "', '" . $gambar . "', '" . $status . "')";
 
     mysqli_query($conn, $sql);
 
@@ -187,8 +194,11 @@ function edit_artikel($data)
 
     $artikel_id = $data['artikel_id'];
     $kategori   = $data['kategori'];
-    $judul      = $data['judul'];
-    $isi        = $data['isi'];
+    $judul      = htmlspecialchars(stripslashes($data['judul']));
+    $isi        = htmlspecialchars(stripslashes($data['isi']));
+
+    $publisher  = $data['publish'];
+    $status     = $data['status'];
 
     $gambar_lama = $data['gambar_lama'];
 
@@ -204,7 +214,7 @@ function edit_artikel($data)
         $gambar = $gambar_lama;
     }
 
-    $query = "UPDATE tb_artikel SET kategori = '" . $kategori . "', judul = '" . $judul . "', isi = '" . $isi . "', gambar = '" . $gambar . "' WHERE id_artikel = '" . $artikel_id . "' ";
+    $query = "UPDATE tb_artikel SET kategori = '" . $kategori . "', judul = '" . $judul . "', isi = '" . $isi . "',  publisher = '" . $publisher . "', tgl_release = '" . date('Y-m-d') . "', gambar = '" . $gambar . "', status = '" . $status . "' WHERE id_artikel = '" . $artikel_id . "' ";
 
     mysqli_query($conn, $query);
 
@@ -434,10 +444,12 @@ function add_user($data)
 
     $conn = koneksi();
 
-    $nama           = strtolower(stripslashes($data['nama']));
-    $username       = strtolower(stripslashes($data['username']));
+    $nama           = stripslashes($data['nama']);
+    $username       = stripslashes($data['username']);
     $password       = mysqli_real_escape_string($conn, $data['password']);
     $role           = $data['role'];
+    $jurusan        = $data['jurusan'];
+    $kelas        = $data['kelas'];
 
     // cek username
     $ambil = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '" . $username . "' ");
@@ -455,7 +467,7 @@ function add_user($data)
 
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        mysqli_query($conn, "INSERT INTO tb_user VALUES(NULL, '" . $nama . "', '" . $username . "', '" . $password . "', '" . $role . "')");
+        mysqli_query($conn, "INSERT INTO tb_user VALUES(NULL, '" . $nama . "', '" . $username . "', '" . $password . "',  '" . $kelas . "', '" . $jurusan . "', '" . $role . "')");
 
         $cek = mysqli_affected_rows($conn);
 
@@ -497,16 +509,18 @@ function edit_user($data)
     $conn = koneksi();
 
     $user_id        = $data['user_id'];
-    $nama           = strtolower(stripslashes($data['nama']));
-    $username       = strtolower(stripslashes($data['username']));
+    $nama           = stripslashes($data['nama']);
+    $username       = stripslashes($data['username']);
     $password       = mysqli_real_escape_string($conn, $data['password']);
     $role           = $data['role'];
+    $jurusan        = $data['jurusan'];
+    $kelas          = $data['kelas'];
 
     if ($password !== "") {
 
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "UPDATE tb_user SET nama = '" . $nama . "', password = '" . $password . "',  role = '" . $role . "' WHERE id_user = '" . $user_id . "' ";
+        $sql = "UPDATE tb_user SET nama = '" . $nama . "', password = '" . $password . "', kelas = '" . $kelas . "', jurusan = '" . $jurusan . "' , role = '" . $role . "' WHERE id_user = '" . $user_id . "' ";
 
         mysqli_query($conn, $sql);
 
@@ -540,7 +554,7 @@ function edit_user($data)
             return false;
         }
 
-        $sql = "UPDATE tb_user SET nama = '" . $nama . "', username = '" . $username . "',  role = '" . $role . "' WHERE id_user = '" . $user_id . "' ";
+        $sql = "UPDATE tb_user SET nama = '" . $nama . "', username = '" . $username . "',  kelas = '" . $kelas . "', jurusan = '" . $jurusan . "' , role = '" . $role . "' WHERE id_user = '" . $user_id . "' ";
 
         mysqli_query($conn, $sql);
 
@@ -559,7 +573,7 @@ function edit_user($data)
         return $cek;
     } else {
 
-        $sql = "UPDATE tb_user SET nama = '" . $nama . "',  role = '" . $role . "' WHERE id_user = '" . $user_id . "' ";
+        $sql = "UPDATE tb_user SET nama = '" . $nama . "', kelas = '" . $kelas . "', jurusan = '" . $jurusan . "' ,  role = '" . $role . "' WHERE id_user = '" . $user_id . "' ";
 
         mysqli_query($conn, $sql);
 

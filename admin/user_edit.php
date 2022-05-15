@@ -59,15 +59,25 @@ if (isset($_POST['submit'])) {
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" name="user_id" id="" value="<?= $row['id_user'] ?>">
+                                        <input type="hidden" name="user_id" id="" value="<?= $row['id_user'] ?>">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nama Pengguna</label>
                                             <input type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Enter nama" value="<?= $row['nama'] ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Username Pengguna</label>
-                                            <!-- <input type="text" name="username2" class="form-control" id="exampleInputEmail1" placeholder="Enter Username" value="<?= $row['username'] ?>"> -->
                                             <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Enter Username">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Kelas</label>
+                                            <select name="kelas" id="" class="form-control">
+                                                <option selected><?= $row['kelas'] ?></option>
+                                                <option value="X">X</option>
+                                                <option value="XI">XI</option>
+                                                <option value="XII">XII</option>
+                                                <option value="Guru">Guru</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -82,6 +92,17 @@ if (isset($_POST['submit'])) {
                                                 <option selected><?= $row['role'] ?></option>
                                                 <option value="admin">Admin</option>
                                                 <option value="publisher">Publisher</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Jurusan</label>
+                                            <select name="jurusan" id="" class="form-control">
+                                                <option selected><?= $row['jurusan'] ?></option>
+                                                <option value="Rekayasa Perangkat Lunak(RPL)">Rekayasa Perangkat Lunak</option>
+                                                <option value="Desain Komunikasi Visual(DKV)">Desain Komunikasi Visual</option>
+                                                <option value="Jasa Boga(JB)">Jasa Boga</option>
+                                                <option value="Perbangkan Syariah(PS)">Perbangkan Syariah</option>
+                                                <option value="Agribisnis Pengolahan Hasil Pangan(APHP)">Agribisnis Pengolahan Hasil Pangan</option>
                                             </select>
                                         </div>
                                     </div>

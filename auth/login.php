@@ -34,6 +34,30 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body class="hold-transition login-page">
+
+    <!-- response -->
+    <?php if (isset($_SESSION['status']) === true) : ?>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= @$_SESSION['e_password'] ?>
+                    <?= @$_SESSION['e_username'] ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    <?php
+
+    endif;
+
+    unset($_SESSION['status']);
+    unset($_SESSION['e_password']);
+    unset($_SESSION['e_username']);
+
+    ?>
+
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
@@ -43,7 +67,7 @@ if (isset($_POST['submit'])) {
 
                 <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" name="username" class="form-control" placeholder="Username">
+                        <input type="text" name="username" class="form-control" placeholder="Username" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -51,7 +75,7 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

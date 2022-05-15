@@ -67,17 +67,24 @@ $row = show_kategori("SELECT * FROM tb_kategori");
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Judul Artikel</label>
-                                    <input type="text" name="judul" class="form-control" id="exampleInputEmail1" placeholder="Enter judul">
+                                    <input type="text" name="judul" class="form-control" id="exampleInputEmail1" placeholder="Enter judul" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Isi Artikel</label>
                                     <textarea id="summernote" name="isi">
-                                                    Place <em>some</em> <u>text</u> <strong>here</strong>
-                                            </textarea>
+                                        Place <em>some</em> <u>text</u> <strong>here</strong>
+                                    </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Publisher</label>
+                                    <input type="text" name="publish" id="publish" class="form-control" value="<?= $_SESSION['profile']['nama'] ?>" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Sub-Image</label>
                                     <input type="file" name="gambar" class="form-control" id="exampleInputEmail1" placeholder="Enter gambar">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="status" class="form-control" value="pending">
                                 </div>
                             </div>
 

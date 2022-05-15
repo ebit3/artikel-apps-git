@@ -57,18 +57,28 @@ if (isset($_POST['submit'])) {
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nama Pengguna</label>
-                                            <input type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Enter nama">
+                                            <input type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Enter nama" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Username Pengguna</label>
-                                            <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Enter Username">
+                                            <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Enter Username" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Kelas</label>
+                                            <select name="kelas" id="" class="form-control">
+                                                <option selected>--Pilih Kelas Anda--</option>
+                                                <option value="X">X</option>
+                                                <option value="XI">XI</option>
+                                                <option value="XII">XII</option>
+                                                <option value="Guru">Guru</option>
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Password Pengguna</label>
-                                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="Enter password">
+                                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="Enter password" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Role Pengguna</label>
@@ -76,6 +86,17 @@ if (isset($_POST['submit'])) {
                                                 <option selected>--Pilih Role Anda--</option>
                                                 <option value="admin">Admin</option>
                                                 <option value="publisher">Publisher</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Jurusan</label>
+                                            <select name="jurusan" id="" class="form-control">
+                                                <option selected>--Pilih Role Anda--</option>
+                                                <option value="Rekayasa Perangkat Lunak(RPL)">Rekayasa Perangkat Lunak</option>
+                                                <option value="Desain Komunikasi Visual(DKV)">Desain Komunikasi Visual</option>
+                                                <option value="Jasa Boga(JB)">Jasa Boga</option>
+                                                <option value="Perbangkan Syariah(PS)">Perbangkan Syariah</option>
+                                                <option value="Agribisnis Pengolahan Hasil Pangan(APHP)">Agribisnis Pengolahan Hasil Pangan</option>
                                             </select>
                                         </div>
                                     </div>

@@ -77,13 +77,25 @@ if (isset($_POST['submit'])) {
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Isi Artikel</label>
                                     <textarea id="summernote" name="isi">
-                                                    <?= $rows['isi'] ?>
-                                            </textarea>
+                                        <?= $rows['isi'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Publisher</label>
+                                    <input type="text" name="publish" id="publish" class="form-control" value="<?= $_SESSION['profile']['nama'] ?>" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Sub-Image</label>
                                     <input type="file" name="gambar" class="form-control" id="exampleInputEmail1" placeholder="Enter gambar">
                                     <input type="hidden" name="gambar_lama" class="form-control" id="exampleInputEmail1" placeholder="Enter gambar" value="<?= $rows['gambar'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">Status Artikel</label>
+                                    <select name="status" class="form-control" id="">
+                                        <option selected><?= $rows['status'] ?></option>
+                                        <option value="revisi">revisi</option>
+                                        <option value="publish">publish</option>
+                                    </select>
                                 </div>
                             </div>
 
