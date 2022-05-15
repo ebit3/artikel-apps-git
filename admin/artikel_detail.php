@@ -1,3 +1,14 @@
+<?php
+
+require_once '../controller/fungsi.php';
+
+$id = $_GET['id'];
+
+$rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id . "' ");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,19 +76,16 @@ https://templatemo.com/tm-551-stand-blog
                                         <img src="assets/images/blog-post-02.jpg" alt="">
                                     </div>
                                     <div class="down-content">
-                                        <span>Lifestyle</span>
-                                        <a href="../post-details.html">
-                                            <h4>Lorem Ipsum is simply dummy</h4>
-                                        </a>
+                                        <span><?= $rows['kategori'] ?></span>
+
+                                        <h4><?= $rows['judul'] ?></h4>
+
                                         <ul class="post-info">
-                                            <li><a href="../#">Admin</a></li>
+                                            <li><a href="../#"><?= $rows['publisher'] ?></a></li>
                                             <li><a href="../#">May 28, 2021</a></li>
                                             <li><a href="../#">10 Comments</a></li>
                                         </ul>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                                            type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-                                            also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                        <p><?= $rows['isi'] ?></p>
                                         <div class="post-options">
                                             <div class="row">
                                                 <div class="col-6">
@@ -107,16 +115,16 @@ https://templatemo.com/tm-551-stand-blog
     </section>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
     <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/accordions.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/owl.js"></script>
+    <script src="../assets/js/slick.js"></script>
+    <script src="../assets/js/isotope.js"></script>
+    <script src="../assets/js/accordions.js"></script>
 
 
     <script language="text/Javascript">
