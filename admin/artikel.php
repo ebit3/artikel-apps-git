@@ -86,7 +86,7 @@ $data =  show_artikel("SELECT * FROM tb_artikel");
                                                 <a href="artikel_hapus.php?id=<?= $rows['id_artikel'] ?>" class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash nav-icon"></i>
                                                 </a>
-                                                <a href="artikel_hapus.php?id=<?= $rows['id_artikel'] ?>" class="btn btn-primary btn-sm">
+                                                <a href="artikel_detail.php?id=<?= $rows['id_artikel'] ?>" class="btn btn-primary btn-sm">
                                                     <i class="fas fa-eye nav-icon"></i>
                                                 </a>
                                             </td>

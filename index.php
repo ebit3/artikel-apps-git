@@ -1,6 +1,6 @@
-<?php include 'layouts/header.php' ?>
+<?php include 'layout/header.php' ?>
 
-<?php include 'layouts/navbar.php' ?>
+<?php include 'layout/navbar.php' ?>
 
 <!-- Banner Starts Here -->
 <div class="main-banner header-text">
@@ -359,4 +359,4 @@
     </div>
 </section>
 
-<?php include 'layouts/footer.php' ?>
+<?php include 'layout/footer.php' ?>
