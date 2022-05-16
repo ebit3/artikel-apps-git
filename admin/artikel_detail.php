@@ -29,13 +29,13 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
     <link rel="stylesheet" href="../assets/css/template.css">
     <link rel="stylesheet" href="../assets/css/owl.css">
-    <!--
 
-TemplateMo 551 Stand Blog
+    <style>
+        .inp:focus {
+            outline: none;
+        }
+    </style>
 
-https://templatemo.com/tm-551-stand-blog
-
--->
 </head>
 
 <body>
@@ -77,15 +77,14 @@ https://templatemo.com/tm-551-stand-blog
                                     </div>
                                     <div class="down-content">
                                         <span><?= $rows['kategori'] ?></span>
-                                        <a href="post-details.html">
+                                        <a>
                                             <h4><?= $rows['judul'] ?></h4>
                                         </a>
                                         <ul class="post-info">
-                                            <li><a href="#"><?= $rows['publisher'] ?></a></li>
-                                            <li><a href="#">
-                                                    <input type="date" name="" id="" value="<?= $rows['tgl_release'] ?>" style="border: none;">
+                                            <li><a><?= $rows['publisher'] ?></a></li>
+                                            <li><a>
+                                                    <input type="date" name="" id="" value="<?= $rows['tgl_release'] ?>" style="border: none; color: #aaaaaa;" class="inp" readonly>
                                                 </a></li>
-                                            <li><a href="#">10 Comments</a></li>
                                         </ul>
                                         <p><?= $rows['isi'] ?></p>
                                         <div class="post-options">
@@ -93,7 +92,7 @@ https://templatemo.com/tm-551-stand-blog
                                                 <div class="col-6">
                                                     <ul class="post-tags">
                                                         <li><i class="fa fa-tags"></i></li>
-                                                        <li><a href="#">Great Responsive</a>,</li>
+                                                        <li><a href="#">Maja Sastra SKANEDA</a>,</li>
                                                         <li><a href="#">BLOG</a></li>
                                                     </ul>
                                                 </div>

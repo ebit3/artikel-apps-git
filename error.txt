@@ -19,3 +19,10 @@ db artikel =>   1. id_artikel
                 6. waktu_release => hidden
                 7. penulis
                 8. kategori_artikel
+
+
+
+                error
+
+
+=> Fatal error: Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Dataran Lembah Neraka' yang juga dimuat di majalah Drama (No.1, Februari 1953...' at line 1 in C:\xampp\htdocs\artikel-apps\controller\fungsi.php:111 Stack trace: #0 C:\xampp\htdocs\artikel-apps\controller\fungsi.php(111): mysqli_query(Object(mysqli), 'INSERT INTO tb_...') #1 C:\xampp\htdocs\artikel-apps\admin\artikel_tambah.php(9): add_artikel(Array) #2 {main} thrown in C:\xampp\htdocs\artikel-apps\controller\fungsi.php on line 111
