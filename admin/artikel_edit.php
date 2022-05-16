@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Isi Artikel</label>
-                                    <textarea id="summernote" name="isi">
+                                    <textarea id="editor" name="isi" class="ckeditor">
                                         <?= $rows['isi'] ?>
                                     </textarea>
                                 </div>

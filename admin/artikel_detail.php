@@ -73,7 +73,7 @@ https://templatemo.com/tm-551-stand-blog
                             <div class="col-lg-12">
                                 <div class="blog-post">
                                     <div class="blog-thumb">
-                                        <img src="assets/images/blog-post-02.jpg" alt="">
+                                        <img src="../images/assets/<?= $rows['gambar'] ?>" alt="">
                                     </div>
                                     <div class="down-content">
                                         <span><?= $rows['kategori'] ?></span>

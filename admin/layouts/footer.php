@@ -24,6 +24,9 @@
 <!-- AdminLTE App -->
 <script src="../assets/dist/js/adminlte.js"></script>
 
+<!-- cek editor -->
+<script src="../assets/ckeditor5-build-classic/ckeditor.js"></script>
+
 
 <!-- Summernote -->
 <script src="../assets/plugins/summernote/summernote-bs4.min.js"></script>
@@ -74,6 +77,19 @@
             theme: "monokai"
         });
     })
+</script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(err => {
+            console.error(err.stack);
+        });
 </script>
 
 </body>

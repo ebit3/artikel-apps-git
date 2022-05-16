@@ -71,9 +71,7 @@ $row = show_kategori("SELECT * FROM tb_kategori");
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Isi Artikel</label>
-                                    <textarea id="summernote" name="isi">
-                                        Place <em>some</em> <u>text</u> <strong>here</strong>
-                                    </textarea>
+                                    <textarea id="editor" name="isi" class="ckeditor"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Publisher</label>
