@@ -1,11 +1,10 @@
 <?php
 
-require_once '../controller/fungsi.php';
+include '../controller/fungsi.php';
 
 $id = $_GET['id'];
 
-$rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id . "' ");
-
+$rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id  . "' ");
 
 ?>
 
@@ -18,7 +17,7 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="../https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 
     <title>Responsive Blog - Post Details</title>
 
@@ -40,6 +39,7 @@ https://templatemo.com/tm-551-stand-blog
 </head>
 
 <body>
+
     <!-- Banner Ends Here -->
 
     <section class="call-to-action">
@@ -53,7 +53,7 @@ https://templatemo.com/tm-551-stand-blog
                             </div>
                             <div class="col-lg-4">
                                 <div class="main-button">
-                                    <a rel="nofollow" href="artikel.php" target="_parent">Kembali</a>
+                                    <a rel="nofollow" href="artikel.php">!Kembali</a>
                                 </div>
                             </div>
                         </div>
@@ -77,13 +77,15 @@ https://templatemo.com/tm-551-stand-blog
                                     </div>
                                     <div class="down-content">
                                         <span><?= $rows['kategori'] ?></span>
-
-                                        <h4><?= $rows['judul'] ?></h4>
-
+                                        <a href="post-details.html">
+                                            <h4><?= $rows['judul'] ?></h4>
+                                        </a>
                                         <ul class="post-info">
-                                            <li><a href="../#"><?= $rows['publisher'] ?></a></li>
-                                            <li><a href="../#">May 28, 2021</a></li>
-                                            <li><a href="../#">10 Comments</a></li>
+                                            <li><a href="#"><?= $rows['publisher'] ?></a></li>
+                                            <li><a href="#">
+                                                    <input type="date" name="" id="" value="<?= $rows['tgl_release'] ?>" style="border: none;">
+                                                </a></li>
+                                            <li><a href="#">10 Comments</a></li>
                                         </ul>
                                         <p><?= $rows['isi'] ?></p>
                                         <div class="post-options">
@@ -91,15 +93,15 @@ https://templatemo.com/tm-551-stand-blog
                                                 <div class="col-6">
                                                     <ul class="post-tags">
                                                         <li><i class="fa fa-tags"></i></li>
-                                                        <li><a href="../#">Great Responsive</a>,</li>
-                                                        <li><a href="../#">BLOG</a></li>
+                                                        <li><a href="#">Great Responsive</a>,</li>
+                                                        <li><a href="#">BLOG</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-6">
                                                     <ul class="post-share">
                                                         <li><i class="fa fa-share-alt"></i></li>
-                                                        <li><a href="../#">Facebook</a>,</li>
-                                                        <li><a href="../#"> Twitter</a></li>
+                                                        <li><a href="#">Facebook</a>,</li>
+                                                        <li><a href="#"> Twitter</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -113,6 +115,31 @@ https://templatemo.com/tm-551-stand-blog
             </div>
         </div>
     </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="social-icons">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Youtube</a></li>
+                        <li><a href="#">Linkedin</a></li>
+                        <li><a href="#">Dribbble</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <p>Copyright 2021 Responsive Blog
+
+                            | Design: <a rel="nofollow" href="https://www.youtube.com/channel/UCiC5-n85_UzJs7C1FvFl-fg" target="_parent">Jimdel-Edu</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
