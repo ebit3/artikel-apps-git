@@ -213,6 +213,7 @@ header .navbar {
 	text-transform: uppercase;
 	font-weight: 900;
 	letter-spacing: 0.25px;
+	text-shadow: 2px 2px 7px #000000;
 }
 
 .owl-banner .item .item-content h4 {
@@ -222,6 +223,7 @@ header .navbar {
 	letter-spacing: 0.5px;
 	text-transform: capitalize;
 	margin: 10px 0px 12px 0px;
+	text-shadow: 2px 2px 7px #000000;
 }
 
 .owl-banner .item .item-content ul li {
