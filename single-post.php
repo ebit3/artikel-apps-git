@@ -2,8 +2,6 @@
 
 <?php
 
-$data = show_artikel("SELECT * FROM tb_artikel");
-
 $data_recent = show_artikel("SELECT * FROM tb_artikel ORDER BY RAND() LIMIT 5");
 
 $data_kategori = show_kategori("SELECT * FROM tb_kategori");
@@ -100,91 +98,6 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="sidebar-item comments">
-                                <div class="sidebar-heading">
-                                    <h2>4 comments</h2>
-                                </div>
-                                <div class="content">
-                                    <ul>
-                                        <li>
-                                            <div class="author-thumb">
-                                                <img src="assets/images/comment-author-01.jpg" alt="">
-                                            </div>
-                                            <div class="right-content">
-                                                <h4>Smith Brown<span>May 26, 2021</span></h4>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the.</p>
-                                            </div>
-                                        </li>
-                                        <li class="replied">
-                                            <div class="author-thumb">
-                                                <img src="assets/images/comment-author-02.jpg" alt="">
-                                            </div>
-                                            <div class="right-content">
-                                                <h4>Jimdel-Edu<span>May 27, 2021</span></h4>
-                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="author-thumb">
-                                                <img src="assets/images/comment-author-03.jpg" alt="">
-                                            </div>
-                                            <div class="right-content">
-                                                <h4>La Semence<span>May 28, 2021</span></h4>
-                                                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum".</p>
-                                            </div>
-                                        </li>
-                                        <li class="replied">
-                                            <div class="author-thumb">
-                                                <img src="assets/images/comment-author-02.jpg" alt="">
-                                            </div>
-                                            <div class="right-content">
-                                                <h4>Jimdel-Edu<span>May 28, 2021</span></h4>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="sidebar-item submit-comment">
-                                <div class="sidebar-heading">
-                                    <h2>Your comment</h2>
-                                </div>
-                                <div class="content">
-                                    <form id="comment" action="#" method="post">
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-12">
-                                                <fieldset>
-                                                    <input name="name" type="text" id="name" placeholder="Your name" required="">
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <fieldset>
-                                                    <input name="email" type="text" id="email" placeholder="Your email" required="">
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-md-12 col-sm-12">
-                                                <fieldset>
-                                                    <input name="subject" type="text" id="subject" placeholder="Subject">
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <fieldset>
-                                                    <textarea name="message" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <fieldset>
-                                                    <button type="submit" id="form-submit" class="main-button">Submit</button>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -206,18 +119,19 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
                                 </div>
                                 <div class="content">
                                     <ul>
-                                        <li><a href="post-details.html">
-                                                <h5>Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
-                                                <span>May 28, 2021</span>
-                                            </a></li>
-                                        <li><a href="post-details.html">
-                                                <h5>There are many variations of passages of Lorem Ipsum available</h5>
-                                                <span>May 28, 2021</span>
-                                            </a></li>
-                                        <li><a href="post-details.html">
-                                                <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced</h5>
-                                                <span>May 27, 2021</span>
-                                            </a></li>
+                                        <?php foreach ($data_recent as $row) : ?>
+
+                                            <li>
+                                                <a href="post-details.html">
+                                                    <h5><?= $row['judul'] ?></h5>
+                                                    <span>
+                                                        <input type="date" name="" id="" value="<?= $row['tgl_release'] ?>" readonly style="border: none; background: none; color: #aaa;" class="inp">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        <?php endforeach; ?>
+
                                     </ul>
                                 </div>
                             </div>
@@ -229,12 +143,13 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
                                 </div>
                                 <div class="content">
                                     <ul>
-                                        <li><a href="#">- Nature Lifestyle</a></li>
-                                        <li><a href="#">- Awesome Layouts</a></li>
-                                        <li><a href="#">- Creative Ideas</a></li>
-                                        <li><a href="#">- Responsive Templates</a></li>
-                                        <li><a href="#">- HTML5 / CSS3 Templates</a></li>
-                                        <li><a href="#">- Creative &amp; Unique</a></li>
+
+                                        <?php foreach ($data_kategori as $row) : ?>
+
+                                            <li><a href="#">- <?= $row['kategori'] ?></a></li>
+
+                                        <?php endforeach; ?>
+
                                     </ul>
                                 </div>
                             </div>
@@ -246,18 +161,13 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
                                 </div>
                                 <div class="content">
                                     <ul>
-                                        <li><a href="#">Lifestyle</a></li>
-                                        <li><a href="#">Creative</a></li>
-                                        <li><a href="#">HTML5</a></li>
-                                        <li><a href="#">Inspiration</a></li>
-                                        <li><a href="#">Motivation</a></li>
-                                        <li><a href="#">PSD</a></li>
-                                        <li><a href="#">Responsive</a></li>
-                                        <li><a href="#">PHP</a></li>
-                                        <li><a href="#">C#</a></li>
-                                        <li><a href="#">JavaScript</a></li>
-                                        <li><a href="#">Pyton</a></li>
-                                        <li><a href="#">RPG</a></li>
+
+                                        <?php foreach ($data_kategori as $row) : ?>
+
+                                            <li><a href="#">- <?= $row['kategori'] ?></a></li>
+
+                                        <?php endforeach; ?>
+
                                     </ul>
                                 </div>
                             </div>

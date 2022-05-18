@@ -27,13 +27,13 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                             <div class="meta-category">
                                 <span class="kategori"><?= $rows['kategori'] ?></span>
                             </div>
-                            <a href="">
+                            <a href="single-post.php?id=<?= $rows['id_artikel'] ?>">
                                 <h4><?= $rows['judul'] ?></h4>
                             </a>
                             <ul class="post-info">
-                                <li><a href="#"><?= $rows['publisher'] ?></a></li>
+                                <li><a><?= $rows['publisher'] ?></a></li>
                                 <li>
-                                    <a href="#">
+                                    <a>
                                         <input type="date" name="" id="" value="<?= $rows['tgl_release'] ?>" readonly style="border: none; background: none; color: #fff;" class="inp">
                                     </a>
                                 </li>
@@ -89,20 +89,20 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                     </div>
                                     <div class="down-content">
                                         <span><?= $row['kategori'] ?></span>
-                                        <a href="post-details.html?id=<?= $row['id_artikel'] ?>">
+                                        <a href="single-post.php?id=<?= $row['id_artikel'] ?>">
                                             <h4><?= $row['judul'] ?></h4>
                                         </a>
                                         <ul class="post-info">
-                                            <li><a href="#"><?= $row['publisher'] ?></a></li>
+                                            <li><a><?= $row['publisher'] ?></a></li>
                                             <li>
-                                                <a href="">
+                                                <a>
                                                     <input type="date" name="" id="" value="<?= $row['tgl_release'] ?>" readonly style="border: none; background: none; color: #aaa;" class="inp">
                                                 </a>
                                             </li>
                                         </ul>
                                         <p>
                                             <?= substr($row['isi'], 0, 250) ?>...
-                                            <a href="">Baca terus</a>
+                                            <a href="single-post.php?id=<?= $row['id_artikel'] ?>">Baca terus</a>
                                         </p>
                                         <div class="post-options">
                                             <div class="row">
@@ -131,7 +131,7 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
 
                         <div class="col-lg-12">
                             <div class="main-button">
-                                <a href="blog.html">View All Posts</a>
+                                <a href="artikel.php">View All Posts</a>
                             </div>
                         </div>
 
@@ -141,13 +141,6 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
             <div class="col-lg-4">
                 <div class="sidebar">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="sidebar-item search">
-                                <form id="search_form" name="gs" method="GET" action="#">
-                                    <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
-                                </form>
-                            </div>
-                        </div>
 
                         <div class="col-lg-12">
                             <div class="sidebar-item recent-posts">
@@ -160,7 +153,7 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                         <?php foreach ($data_recent as $row) : ?>
 
                                             <li>
-                                                <a href="post-details.html">
+                                                <a href="single-post.php?id=<?= $row['id_artikel'] ?>">
                                                     <h5><?= $row['judul'] ?></h5>
                                                     <span>
                                                         <input type="date" name="" id="" value="<?= $row['tgl_release'] ?>" readonly style="border: none; background: none; color: #aaa;" class="inp">
@@ -184,7 +177,7 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
 
                                         <?php foreach ($data_kategori as $row) : ?>
 
-                                            <li><a href="#">- <?= $row['kategori'] ?></a></li>
+                                            <li><a href="filter-post.php?categories=<?= $row['kategori'] ?>">- <?= $row['kategori'] ?></a></li>
 
                                         <?php endforeach; ?>
 
@@ -201,7 +194,7 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                     <ul>
                                         <?php foreach ($data_kategori as $row) : ?>
 
-                                            <li><a href="#"><?= $row['kategori'] ?></a></li>
+                                            <li><a href="filter-post.php?categories=<?= $row['kategori'] ?>">- <?= $row['kategori'] ?></a></li>
 
                                         <?php endforeach; ?>
                                     </ul>
