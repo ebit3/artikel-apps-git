@@ -46,7 +46,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home
+                            <a class="nav-link" href="index.php">Beranda
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -56,7 +56,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
+                            <a class="nav-link" href="artikel.php">Artikel</a>
                         </li>
 
                         <li class="nav-item">

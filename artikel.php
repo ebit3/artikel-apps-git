@@ -4,8 +4,6 @@
 
 $data = show_artikel("SELECT * FROM tb_artikel");
 
-$data_limit = show_artikel("SELECT * FROM tb_artikel ORDER BY RAND() LIMIT 3");
-
 $data_recent = show_artikel("SELECT * FROM tb_artikel ORDER BY RAND() LIMIT 5");
 
 $data_kategori = show_kategori("SELECT * FROM tb_kategori");
@@ -14,39 +12,21 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
 
 <!-- Page Content -->
 <!-- Banner Starts Here -->
-<div class="main-banner header-text">
-    <div class="container">
-        <div class="owl-banner owl-carousel">
-
-            <?php foreach ($data as $rows) : ?>
-
-                <div class="item">
-                    <img src="images/assets/<?= $rows['gambar'] ?>" alt="">
-                    <div class="item-content">
-                        <div class="main-content">
-                            <div class="meta-category">
-                                <span class="kategori"><?= $rows['kategori'] ?></span>
-                            </div>
-                            <a href="">
-                                <h4><?= $rows['judul'] ?></h4>
-                            </a>
-                            <ul class="post-info">
-                                <li><a href="#"><?= $rows['publisher'] ?></a></li>
-                                <li>
-                                    <a href="#">
-                                        <input type="date" name="" id="" value="<?= $rows['tgl_release'] ?>" readonly style="border: none; background: none; color: #fff;" class="inp">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+<div class="heading-page header-text">
+    <section class="page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-content">
+                        <h4>Recent Posts</h4>
+                        <h2>Recent Blog</h2>
                     </div>
                 </div>
-
-            <?php endforeach; ?>
-
+            </div>
         </div>
-    </div>
+    </section>
 </div>
+
 <!-- Banner Ends Here -->
 
 <section class="call-to-action">
@@ -56,12 +36,12 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                 <div class="main-content">
                     <div class="row">
                         <div class="col-lg-8">
-                            <span>Nama-nya Gagal itu Ada</span>
-                            <h4>Tapi Menyerah Yang Jangan</h4>
+                            <span>Responsive Blog HTML5 / CSS3</span>
+                            <h4>Great Responsive Blog HTML5 / CSS3 For Bloggers!</h4>
                         </div>
                         <div class="col-lg-4">
                             <div class="main-button">
-                                <a rel="nofollow" href="#" target="_parent">More Info!</a>
+                                <a href="https://www.youtube.com/channel/UCiC5-n85_UzJs7C1FvFl-fg" target="_parent">MORE INFO!</a>
                             </div>
                         </div>
                     </div>
@@ -72,16 +52,16 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
 </section>
 
 
-<section class="blog-posts">
+<section class="blog-posts grid-system">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="all-blog-posts">
                     <div class="row">
 
-                        <?php foreach ($data_limit as $row) : ?>
+                        <?php foreach ($data as $row) : ?>
 
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
 
                                 <div class="blog-post">
                                     <div class="blog-thumb">
@@ -89,7 +69,7 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                     </div>
                                     <div class="down-content">
                                         <span><?= $row['kategori'] ?></span>
-                                        <a href="post-details.html?id=<?= $row['id_artikel'] ?>">
+                                        <a href="single-post.php">
                                             <h4><?= $row['judul'] ?></h4>
                                         </a>
                                         <ul class="post-info">
@@ -101,23 +81,16 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                             </li>
                                         </ul>
                                         <p>
-                                            <?= substr($row['isi'], 0, 250) ?>...
-                                            <a href="">Baca terus</a>
+                                            <?= substr($row['isi'], 0, 150) ?>...
+                                            <a href="single-post.php?id=<?= $row['id_artikel'] ?>">Baca terus</a>
                                         </p>
                                         <div class="post-options">
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-lg-12">
                                                     <ul class="post-tags">
                                                         <li><i class="fa fa-tags"></i></li>
-                                                        <li><a href="#">Beauty</a>,</li>
-                                                        <li><a href="#">Nature</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-6">
-                                                    <ul class="post-share">
-                                                        <li><i class="fa fa-share-alt"></i></li>
-                                                        <li><a href="#">Facebook</a>,</li>
-                                                        <li><a href="#"> Twitter</a></li>
+                                                        <li><a href="#">Great Responsive</a>,</li>
+                                                        <li><a href="#">Website</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -129,12 +102,15 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
 
                         <?php endforeach; ?>
 
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="blog.html">View All Posts</a>
-                            </div>
-                        </div>
 
+                        <div class="col-lg-12">
+                            <ul class="page-numbers">
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,7 +124,6 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                 </form>
                             </div>
                         </div>
-
                         <div class="col-lg-12">
                             <div class="sidebar-item recent-posts">
                                 <div class="sidebar-heading">
@@ -156,7 +131,6 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                 </div>
                                 <div class="content">
                                     <ul>
-
                                         <?php foreach ($data_recent as $row) : ?>
 
                                             <li>
@@ -181,13 +155,12 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                 </div>
                                 <div class="content">
                                     <ul>
-
-                                        <?php foreach ($data_kategori as $row) : ?>
-
-                                            <li><a href="#">- <?= $row['kategori'] ?></a></li>
-
-                                        <?php endforeach; ?>
-
+                                        <li><a href="#">- Nature Lifestyle</a></li>
+                                        <li><a href="#">- Great Reponsive Blog</a></li>
+                                        <li><a href="#">- Creative Ideas</a></li>
+                                        <li><a href="#">- Responsive Website</a></li>
+                                        <li><a href="#">- HTML5 / CSS3 </a></li>
+                                        <li><a href="#">- Dedication &amp; Unique</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -199,11 +172,18 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                 </div>
                                 <div class="content">
                                     <ul>
-                                        <?php foreach ($data_kategori as $row) : ?>
-
-                                            <li><a href="#"><?= $row['kategori'] ?></a></li>
-
-                                        <?php endforeach; ?>
+                                        <li><a href="#">Lifestyle</a></li>
+                                        <li><a href="#">Creative</a></li>
+                                        <li><a href="#">HTML5</a></li>
+                                        <li><a href="#">Inspiration</a></li>
+                                        <li><a href="#">Motivation</a></li>
+                                        <li><a href="#">PSD</a></li>
+                                        <li><a href="#">Responsive</a></li>
+                                        <li><a href="#">PHP</a></li>
+                                        <li><a href="#">C#</a></li>
+                                        <li><a href="#">JavaScript</a></li>
+                                        <li><a href="#">Pyton</a></li>
+                                        <li><a href="#">RPG</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -214,5 +194,7 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
         </div>
     </div>
 </section>
+
+
 
 <?php include 'layout/footer.php'; ?>
