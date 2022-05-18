@@ -6,6 +6,7 @@ $data_recent = show_artikel("SELECT * FROM tb_artikel ORDER BY RAND() LIMIT 5");
 
 $data_kategori = show_kategori("SELECT * FROM tb_kategori");
 
+
 ?>
 
 <!-- Page Content -->
@@ -62,7 +63,24 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                             $data = show_artikel("SELECT * FROM tb_artikel  WHERE judul LIKE '%" . $_POST['cari'] . "%'  ");
                         } else {
 
-                            $data = show_artikel("SELECT * FROM tb_artikel");
+
+                            $halaman = 6;
+
+                            $page = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
+
+                            $mulai = ($page > 1) ? ($page * $halaman) - $halaman : 0;
+
+                            $data = show_artikel("SELECT * FROM tb_artikel LIMIT $mulai, $halaman");
+
+                            $conn = koneksi();
+
+                            $query = mysqli_query($conn, "SELECT * FROM tb_artikel");
+
+                            $total = mysqli_num_rows($query);
+
+                            @$pages = ceil($total / $halaman);
+
+                            // $no = $mulai + 1;
                         } ?>
 
                         <?php foreach ($data as $row) : ?>
@@ -110,10 +128,13 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
 
                         <div class="col-lg-12">
                             <ul class="page-numbers">
-                                <li><a href="#">1</a></li>
-                                <li class="active"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+
+                                <?php for ($no = 1; $no <= @$pages; $no++) : ?>
+
+                                    <li><a href="artikel.php?halaman=<?= $no ?>"><?= $no; ?></a></li>
+
+                                <?php endfor; ?>
+
                             </ul>
                         </div>
                     </div>
