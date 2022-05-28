@@ -4,7 +4,7 @@ ob_start();
 
 require_once 'layouts/header.php';
 
-$data =  show_artikel("SELECT * FROM tb_artikel");
+$data =  show_artikel("SELECT * FROM tb_artikel ORDER BY id_artikel DESC");
 
 ?>
 

@@ -94,7 +94,7 @@ function add_artikel($data)
     $judul      = htmlspecialchars(stripslashes($data['judul']));
 
     // $isi = stripslashes($data['isi']);
-    $isi = stripcslashes($data['isi']);
+    $isi = addslashes($data['isi']);
 
     $publisher  = $data['publish'];
     $status     = $data['status'];
@@ -197,7 +197,7 @@ function edit_artikel($data)
     $artikel_id = $data['artikel_id'];
     $kategori   = $data['kategori'];
     $judul      = htmlspecialchars(stripslashes($data['judul']));
-    $isi        = stripslashes($data['isi']);
+    $isi = addslashes($data['isi']);
 
     $publisher  = $data['publish'];
     $status     = $data['status'];
