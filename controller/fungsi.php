@@ -115,6 +115,8 @@ function add_artikel($data)
     if ($cek > 0) {
 
         header('location:artikel.php');
+        $_SESSION['status'] = true;
+        $_SESSION['add_artikel'] = "Tambah data berhasil";
     } else {
 
         echo "<script>alert('Tambah Data Gagal');history.go(-1);</script>" . mysqli_error($conn);

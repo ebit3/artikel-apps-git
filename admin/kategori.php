@@ -25,7 +25,7 @@ $data =  show_kategori("SELECT * FROM tb_kategori");
     <?php if (isset($_SESSION['status']) === true) : ?>
         <div class="content">
             <div class="container-fluid">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <?= @$_SESSION['add_kategori'] ?>
                     <?= @$_SESSION['drop_kategori'] ?>
                     <?= @$_SESSION['edit_kategori'] ?>

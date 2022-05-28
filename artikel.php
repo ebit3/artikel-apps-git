@@ -2,9 +2,11 @@
 
 <?php
 
-$data_recent = show_artikel("SELECT * FROM tb_artikel ORDER BY RAND() LIMIT 5");
+$data_recent = show_artikel("SELECT * FROM tb_artikel ORDER BY RAND() LIMIT 3");
 
 $data_kategori = show_kategori("SELECT * FROM tb_kategori");
+
+$data_all = show_artikel("SELECT * FROM tb_artikel");
 
 
 ?>
@@ -58,56 +60,27 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                 <div class="all-blog-posts">
                     <div class="row">
 
-                        <?php if (isset($_POST['cari'])) {
+                        <?php foreach ($data_all as $rows) : ?>
 
-                            $data = show_artikel("SELECT * FROM tb_artikel  WHERE judul LIKE '%" . $_POST['cari'] . "%'  ");
-                        } else {
-
-
-                            $halaman = 6;
-
-                            $page = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
-
-                            $mulai = ($page > 1) ? ($page * $halaman) - $halaman : 0;
-
-                            $data = show_artikel("SELECT * FROM tb_artikel LIMIT $mulai, $halaman");
-
-                            $conn = koneksi();
-
-                            $query = mysqli_query($conn, "SELECT * FROM tb_artikel");
-
-                            $total = mysqli_num_rows($query);
-
-                            @$pages = ceil($total / $halaman);
-
-                            // $no = $mulai + 1;
-                        } ?>
-
-                        <?php foreach ($data as $row) : ?>
-
-                            <div class="col-lg-6">
-
+                            <div class="col-lg-6 border border-primary">
                                 <div class="blog-post">
                                     <div class="blog-thumb">
-                                        <img src="images/assets/<?= $row['gambar'] ?>" alt="">
+                                        <img src="images/assets/<?= $rows['gambar'] ?>" alt="Gambar error">
                                     </div>
                                     <div class="down-content">
-                                        <span><?= $row['kategori'] ?></span>
-                                        <a href="single-post.php?id=<?= $row['id_artikel'] ?>">
-                                            <h4><?= $row['judul'] ?></h4>
+                                        <span><?= $rows['kategori'] ?></span>
+                                        <a href="post-details.html">
+                                            <h4><?= $rows['judul'] ?></h4>
                                         </a>
                                         <ul class="post-info">
-                                            <li><a><?= $row['publisher'] ?></a></li>
+                                            <li><a href="#"><?= $rows['publisher'] ?></a></li>
                                             <li>
                                                 <a>
-                                                    <input type="date" name="" id="" value="<?= $row['tgl_release'] ?>" readonly style="border: none; background: none; color: #aaa;" class="inp">
+                                                    <input type="date" name="" id="" value="<?= $rows['tgl_release'] ?>" readonly style="border: none; background: none; color: #aaa;" class="inp">
                                                 </a>
                                             </li>
                                         </ul>
-                                        <p>
-                                            <?= substr($row['isi'], 0, 150) ?>...
-                                            <a href="single-post.php?id=<?= $row['id_artikel'] ?>">Baca terus</a>
-                                        </p>
+                                        <p>The standard chunk of Lorem Ipsumused since the 1500s is reproduced below for those interested.</p>
                                         <div class="post-options">
                                             <div class="row">
                                                 <div class="col-lg-12">
@@ -121,44 +94,29 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
                         <?php endforeach; ?>
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 border border-danger">
                             <ul class="page-numbers">
-
-                                <?php for ($no = 1; $no <= @$pages; $no++) : ?>
-
-                                    <li><a href="artikel.php?halaman=<?= $no ?>"><?= $no; ?></a></li>
-
-                                <?php endfor; ?>
-
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 border border-success">
                 <div class="sidebar">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="sidebar-item search">
-
-                                <form id="search_form" name="gs" method="post" action="">
-
-                                    <?php if (isset($_POST['cari'])) { ?>
-
-                                        <input type="text" name="cari" class="searchText" placeholder="type to search..." autocomplete="on" value="<?= $_POST['cari'] ?>">
-
-                                    <?php } else { ?>
-
-                                        <input type="text" name="cari" class="searchText" placeholder="type to search..." autocomplete="on">
-
-                                    <?php } ?>
+                                <form id="search_form" name="gs" method="GET" action="#">
+                                    <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
                                 </form>
-
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -168,18 +126,17 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                 </div>
                                 <div class="content">
                                     <ul>
-                                        <?php foreach ($data_recent as $row) : ?>
+
+                                        <?php foreach ($data_recent as $rows) : ?>
 
                                             <li>
-                                                <a href="single-post.php?id=<?= $row['id_artikel'] ?>">
-                                                    <h5><?= $row['judul'] ?></h5>
-                                                    <span>
-                                                        <input type="date" name="" id="" value="<?= $row['tgl_release'] ?>" readonly style="border: none; background: none; color: #aaa;" class="inp">
-                                                    </span>
+                                                <a href="post-details.html">
+                                                    <h5>Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                                                    <span>May 28, 2021</span>
                                                 </a>
                                             </li>
 
-                                        <?php endforeach; ?>
+                                        <?php endforeach ?>
 
                                     </ul>
                                 </div>
@@ -193,11 +150,12 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                 <div class="content">
                                     <ul>
 
-                                        <?php foreach ($data_kategori as $row) : ?>
+                                        <?php foreach ($data_kategori as $rows) : ?>
 
-                                            <li><a href="filter-post.php?categories=<?= $row['kategori'] ?>">- <?= $row['kategori'] ?></a></li>
+                                            <li><a href="#">- Nature Lifestyle</a></li>
 
                                         <?php endforeach; ?>
+
                                     </ul>
                                 </div>
                             </div>
@@ -209,9 +167,9 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                 </div>
                                 <div class="content">
                                     <ul>
-                                        <?php foreach ($data_kategori as $row) : ?>
+                                        <?php foreach ($data_kategori as $rows) : ?>
 
-                                            <li><a href="filter-post.php?categories=<?= $row['kategori'] ?>">- <?= $row['kategori'] ?></a></li>
+                                            <li><a href="#">Nature Lifestyle</a></li>
 
                                         <?php endforeach; ?>
                                     </ul>
