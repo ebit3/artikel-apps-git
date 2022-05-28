@@ -19,7 +19,7 @@
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/template.css?<?php echo time() ?>">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/owl.css?<?php echo time() ?>">
 
     <style>
         .inp:focus {

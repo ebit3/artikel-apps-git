@@ -49,41 +49,19 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
 </div>
 <!-- Banner Ends Here -->
 
-<section class="call-to-action">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="main-content">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <span>Nama-nya Gagal itu Ada</span>
-                            <h4>Tapi Menyerah Yang Jangan</h4>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="main-button">
-                                <a rel="nofollow" href="#" target="_parent">More Info!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <section class="blog-posts">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
+        <div class="row ">
+            <div class="col-lg-8 ">
                 <div class="all-blog-posts">
                     <div class="row">
 
                         <?php foreach ($data_limit as $row) : ?>
 
-                            <div class="col-lg-12">
+                            <div class="col-md-12">
 
-                                <div class="blog-post">
+                                <div class="blog-post border border-primary">
                                     <div class="blog-thumb">
                                         <img src="images/assets/<?= $row['gambar'] ?>" alt="">
                                     </div>
@@ -101,27 +79,10 @@ $data_kategori = show_kategori("SELECT * FROM tb_kategori");
                                             </li>
                                         </ul>
                                         <p>
-                                            <?= substr($row['isi'], 0, 250) ?>...
-                                            <a href="single-post.php?id=<?= $row['id_artikel'] ?>">Baca terus</a>
+                                            <?= substr($row['isi'], 350, 350) ?>...
+                                            <a href="single-post.php?id=<?= $row['id_artikel'] ?>">Baca lanjutannya</a>
                                         </p>
-                                        <div class="post-options">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <ul class="post-tags">
-                                                        <li><i class="fa fa-tags"></i></li>
-                                                        <li><a href="#">Beauty</a>,</li>
-                                                        <li><a href="#">Nature</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-6">
-                                                    <ul class="post-share">
-                                                        <li><i class="fa fa-share-alt"></i></li>
-                                                        <li><a href="#">Facebook</a>,</li>
-                                                        <li><a href="#"> Twitter</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
 

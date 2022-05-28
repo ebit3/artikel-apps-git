@@ -322,6 +322,7 @@ header .navbar {
 
 .blog-posts {
 	margin-top: 100px;
+	/* width: 600px; */
 }
 
 .blog-posts .blog-post {
@@ -518,7 +519,7 @@ ul.page-numbers li a:hover {
 }
 
 .blog-posts .comments ul li .author-thumb img {
-	max-width: 100px;
+	max-width: 80px;
 	display: inline;
 }
 
