@@ -15,46 +15,10 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
 <!-- Page Content -->
 <!-- Banner Starts Here -->
 <div class="heading-page header-text">
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-content">
-                        <h4>Post Details</h4>
-                        <h2>Single post</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 </div>
 
-<!-- Banner Ends Here -->
-
-<section class="call-to-action">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="main-content">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <span>Responsive Blog HTML5 / CSS3</span>
-                            <h4>Great Responsive website BLOG For Bloggers!</h4>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="main-button">
-                                <a rel="nofollow" href="https://www.youtube.com/channel/UCiC5-n85_UzJs7C1FvFl-fg" target="_parent">More Info!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="blog-posts grid-system">
+<section class="blog-posts grid-system mt-3">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -104,25 +68,19 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
             <div class="col-lg-4">
                 <div class="sidebar">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="sidebar-item search">
-                                <form id="search_form" name="gs" method="GET" action="#">
-                                    <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
-                                </form>
-                            </div>
-                        </div>
+
 
                         <div class="col-lg-12">
                             <div class="sidebar-item recent-posts">
                                 <div class="sidebar-heading">
-                                    <h2>Recent Posts</h2>
+                                    <h2>Artikel Lain</h2>
                                 </div>
                                 <div class="content">
                                     <ul>
                                         <?php foreach ($data_recent as $row) : ?>
 
                                             <li>
-                                                <a href="post-details.html">
+                                                <a href="single-post.php?id=<?= $row['id_artikel'] ?>">
                                                     <h5><?= $row['judul'] ?></h5>
                                                     <span>
                                                         <input type="date" name="" id="" value="<?= $row['tgl_release'] ?>" readonly style="border: none; background: none; color: #aaa;" class="inp">
@@ -139,14 +97,14 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
                         <div class="col-lg-12">
                             <div class="sidebar-item categories">
                                 <div class="sidebar-heading">
-                                    <h2>Categories</h2>
+                                    <h2>Kategori Artikel</h2>
                                 </div>
                                 <div class="content">
                                     <ul>
 
                                         <?php foreach ($data_kategori as $row) : ?>
 
-                                            <li><a href="#">- <?= $row['kategori'] ?></a></li>
+                                            <li><a href="filter-post.php?categories=<?= $row['kategori'] ?>">- <?= $row['kategori'] ?></a></li>
 
                                         <?php endforeach; ?>
 
@@ -164,7 +122,7 @@ $rows = show_edit_artikel("SELECT * FROM tb_artikel WHERE id_artikel = '" . $id 
 
                                         <?php foreach ($data_kategori as $row) : ?>
 
-                                            <li><a href="#">- <?= $row['kategori'] ?></a></li>
+                                            <li><a href="filter-post.php?categories=<?= $row['kategori'] ?>">- <?= $row['kategori'] ?></a></li>
 
                                         <?php endforeach; ?>
 
